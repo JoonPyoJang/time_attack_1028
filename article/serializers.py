@@ -6,17 +6,6 @@ class ArticleSerializer(serializers.ModelSerializer):
         model = Article
         fields = "__all__"
 
-class ArticleListSerializer(serializers.ModelSerializer):
-
-    user = serializers.SerializerMethodField()
-
-    def get_user(self, obj):
-        return obj.user.username
-
-    class Meta:
-        model = Article
-        fields = ("pk", "title", "created_at", "user")
-
 
 class ArticleAddSerializer(serializers.ModelSerializer):
 
